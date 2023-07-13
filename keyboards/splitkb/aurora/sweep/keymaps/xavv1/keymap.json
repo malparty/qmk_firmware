@@ -5,10 +5,10 @@
     "layout": "LAYOUT",
     "layers": [
         [
-            "KC_Q"        , "KC_W"        , "KC_F"           , "KC_P"          , "KC_B"          , "KC_J"          , "KC_L"        , "KC_U"           , "KC_Y"          , "KC_QUOTE",
-            "LSFT_T(KC_A)", "LT(5,KC_R)"  , "LT(1,KC_S)"     , "LT(3,KC_T)"    , "KC_G"          , "KC_M"          , "LT(4,KC_N)"  , "LT(2,KC_E)"     , "LT(6,KC_I)"    , "LSFT_T(KC_O)",
-            "KC_Z"        , "LCTL_T(KC_X)", "LALT_T(KC_C)"   , "KC_D"          , "KC_V"          , "KC_K"          , "KC_H"        , "LALT_T(KC_COMM)", "LCTL_T(KC_DOT)", "KC_SLSH",
-                                                               "KC_P0"         , "KC_BSPC"       , "LT(7,KC_SPC)"  , "KC_P1"
+            "KC_Q"        , "KC_W"        , "KC_F"          , "KC_P"          , "KC_B"          , "KC_J"          , "KC_L"        , "KC_U"           , "KC_Y"          , "KC_QUOTE",
+            "LCMD(KC_A)"  , "LOPT(KC_R)"  , "LCTL(KC_S)"    , "LSFT(KC_T)"    , "KC_G"          , "KC_M"          , "RSFT(KC_N)"  , "RCTL(KC_E)"     , "ROPT(KC_I)"    , "RCMD(KC_O)",
+            "KC_Z"        , "KC_X"        , "KC_C"          , "KC_D"          , "KC_V"          , "KC_K"          , "KC_H"        , "KC_COMM"        , "KC_DOT"        , "KC_SLSH",
+                                                              "LT(1,KC_TAB)"  , "LT(2,KC_SPC)"  , "LT(3,KC_BSPC)"  , "LT(4,KC_ENTER)"
         ],
         [
             "RGB_TOG"     , "RGB_MOD"     , "RGB_HUI"        , "RGB_SAI"       , "RGB_VAI"       , "RGB_SPI"       , "KC_BTN1"     , "KC_WH_U"        , "KC_BTN2"       , "KC_TRNS",
