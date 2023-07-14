@@ -238,6 +238,24 @@ bool process_record_quantum(keyrecord_t *record) {
     //   return false;
     // }
 
+    // Tap and hold
+    switch (keycode) {
+        case LT(0,KC_1): // Git & Figma (tapped CMD+2, held CMD+5)
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(LGUI(KC_2)); // Intercept tap function
+            } else if (record->event.pressed) {
+                tap_code16(LGUI(KC_5)); // Intercept hold function
+            }
+            return false;
+        case LT(0,KC_2): // Chrome & Brave (tapped CMD+3, held CMD+6)
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(LGUI(KC_3)); // Intercept tap function
+            } else if (record->event.pressed) {
+                tap_code16(LGUI(KC_6)); // Intercept hold function
+            }
+            return false;
+    }
+
 #if defined(SECURE_ENABLE)
     if (!preprocess_secure(keycode, record)) {
         return false;

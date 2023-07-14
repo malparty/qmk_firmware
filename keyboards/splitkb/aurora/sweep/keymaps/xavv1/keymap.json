@@ -5,52 +5,40 @@
     "layout": "LAYOUT",
     "layers": [
         [
-            "KC_Q"        , "KC_W"        , "KC_F"          , "KC_P"          , "KC_B"          , "KC_J"          , "KC_L"        , "KC_U"           , "KC_Y"          , "KC_QUOTE",
-            "LCMD(KC_A)"  , "LOPT(KC_R)"  , "LCTL(KC_S)"    , "LSFT(KC_T)"    , "KC_G"          , "KC_M"          , "RSFT(KC_N)"  , "RCTL(KC_E)"     , "ROPT(KC_I)"    , "RCMD(KC_O)",
-            "KC_Z"        , "KC_X"        , "KC_C"          , "KC_D"          , "KC_V"          , "KC_K"          , "KC_H"        , "KC_COMM"        , "KC_DOT"        , "KC_SLSH",
-                                                              "LT(1,KC_TAB)"  , "LT(2,KC_SPC)"  , "LT(3,KC_BSPC)"  , "LT(4,KC_ENTER)"
+            "KC_Q"              , "KC_W"              , "KC_F"              , "KC_P"              , "KC_B"          , "KC_J"          , "KC_L"              , "KC_U"              , "KC_Y"              , "KC_QUOTE",
+            "MT(MOD_LGUI, KC_A)", "MT(MOD_LALT, KC_R)", "MT(MOD_LCTL, KC_S)", "MT(MOD_LSFT, KC_T)", "KC_G"          , "KC_M"          , "MT(MOD_RSFT, KC_N)", "MT(MOD_RCTL, KC_E)", "MT(MOD_RALT, KC_I)", "MT(MOD_RGUI, KC_O)",
+            "KC_Z"              , "KC_X"              , "KC_C"              , "KC_D"              , "KC_V"          , "KC_K"          , "KC_H"              , "KC_COMM"           , "KC_DOT"            , "KC_SLSH",
+                                                                              "LT(1, KC_TAB)"     , "LT(2, KC_SPC)" , "LT(3, KC_BSPC)", "LT(4, KC_ENTER)"
         ],
         [
-            "RGB_TOG"     , "RGB_MOD"     , "RGB_HUI"        , "RGB_SAI"       , "RGB_VAI"       , "RGB_SPI"       , "KC_BTN1"     , "KC_WH_U"        , "KC_BTN2"       , "KC_TRNS",
-            "KC_TRNS"     , "KC_BTN2"     , "KC_NO"          , "KC_BTN1"       , "KC_TRNS"       , "KC_TRNS"       , "KC_MS_L"     , "KC_MS_D"        , "KC_MS_U"       , "KC_MS_R",
-            "KC_TRNS"     , "RGB_RMOD"    , "RGB_HUD"        , "RGB_SAD"       , "RGB_VAD"       , "RGB_SPD"       , "KC_WH_L"     , "KC_WH_D"        , "KC_WH_R"       , "KC_TRNS",
-                                                               "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"
+            "LT(0,KC_1)"  , "LT(0,KC_2)"  , "LGUI(KC_1)"     , "LOPT(KC_SPC)"  , "LGUI(KC_4)"    , "RSG(KC_Z)"     , "LGUI(KC_V)"  , "LGUI(KC_C)"     , "LGUI(KC_X)"    , "LGUI(KC_Z)",
+            "KC_LGUI"     , "KC_LOPT"     , "KC_LCTL"        , "KC_LSFT"       , "TG(5)"         , "KC_NO"         , "KC_MS_L"     , "KC_MS_D"        , "KC_MS_U"       , "KC_MS_R",
+            "KC_LEFT"     , "KC_UP"       , "KC_DOWN"        , "KC_RGHT"       , "KC_NO"         , "KC_BTN3"       , "KC_WH_L"     , "KC_WH_U"        , "KC_WH_D"       , "KC_WH_R",
+                                                               "KC_TRNS"       , "KC_NO"         , "KC_BTN2"       , "KC_BTN1"
         ],
         [
-            "KC_TRNS"     , "KC_TRNS"     , "KC_PGUP"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-            "KC_LEFT"     , "KC_UP"       , "KC_DOWN"        , "KC_RGHT"       , "KC_TRNS"       , "KC_TRNS"       , "KC_LGUI"     , "KC_NO"          , "LCTL(KC_LALT)" , "LCA(KC_LSFT)",
-            "KC_TRNS"     , "KC_HOME"     , "KC_PGDN"        , "KC_END"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-                                                               "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"
+            "LGUI(KC_Z)"  , "LGUI(KC_X)"  , "LGUI(KC_C)"     , "LGUI(KC_V)"    , "RSG(KC_Z)"     , "RSG(KC_Z)"     , "LGUI(KC_V)"  , "LGUI(KC_C)"     , "LGUI(KC_X)"    , "LGUI(KC_Z)",
+            "KC_LGUI"     , "KC_LOPT"     , "KC_LCTL"        , "KC_LSFT"       , "LGUI(KC_A)"    , "KC_NO"         , "KC_LEFT"     , "KC_DOWN"        , "KC_UP"         , "KC_RGHT",
+            "KC_TRNS"     , "KC_TRNS"     , "KC_BSPC"        , "KC_ENT"        , "KC_ESC"        , "KC_NO"         , "KC_HOME"     , "KC_PGDN"        , "KC_PGUP"       , "KC_END",
+                                                               "KC_NO"         , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"
         ],
         [
-            "KC_TRNS"     , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_UNDS"     , "KC_PIPE"        , "KC_QUOT"       , "KC_TRNS",
-            "KC_CIRC"     , "KC_ASTR"     , "KC_AMPR"        , "KC_NO"         , "KC_TRNS"       , "KC_HASH"       , "KC_TILD"     , "KC_SLSH"        , "KC_DQUO"       , "KC_DLR",
-            "KC_TRNS"     , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_MINS"     , "KC_BSLS"        , "KC_GRV"        , "KC_TRNS",
-                                                               "RGB_RMOD"      , "KC_TRNS"       , "KC_TRNS"       , "RGB_MOD"
+            "KC_LBRC"     , "KC_7"        , "KC_8"           , "KC_9"          , "KC_RBRC"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
+            "KC_SCLN"     , "KC_4"        , "KC_5"           , "KC_6"          , "KC_EQL"        , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
+            "KC_GRV"      , "KC_1"        , "KC_2"           , "KC_3"          , "KC_BSLS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_NO"         , "KC_TRNS",
+                                                               "KC_0"          , "KC_DOT"        , "KC_TRNS"       , "KC_NO"
         ],
         [
-            "KC_TRNS"     , "KC_COLN"     , "KC_LT"          , "KC_GT"         , "KC_SCLN"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-            "KC_LCBR"     , "KC_RCBR"     , "KC_LPRN"        , "KC_RPRN"       , "KC_AT"         , "KC_TRNS"       , "KC_NO"       , "KC_EQL"         , "KC_PLUS"       , "KC_PERC",
-            "KC_TRNS"     , "KC_EXLM"     , "KC_LBRC"        , "KC_RBRC"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-                                                               "KC_VOLD"       , "KC_TRNS"       , "KC_TRNS"       , "KC_VOLU"
+            "KC_LCBR"     , "KC_AMPR"     , "KC_ASTR"        , "KC_MINS"       , "KC_RCBR"       , "KC_BRIU"       , "KC_UNDS"     , "KC_NO"          , "KC_NO"         , "KC_TRNS",
+            "KC_COLN"     , "KC_DLR"      , "KC_PERC"        , "KC_CIRC"       , "KC_PLUS"       , "KC_BRID"       , "KC_LSFT"     , "KC_LCTL"        , "KC_LALT"       , "KC_LGUI",
+            "KC_TILD"     , "KC_EXLM"     , "KC_AT"          , "KC_HASH"       , "KC_PIPE"       , "KC_MPRV"       , "KC_MPLY"     , "KC_KB_VOLUME_DOWN", "KC_KB_VOLUME_UP", "KC_MNXT",
+                                                               "KC_LPRN"       , "KC_RPRN"       , "KC_NO"         , "KC_TRNS"
         ],
         [
-            "KC_TRNS"     , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_F7"       , "KC_F8"          , "KC_F9"         , "KC_F10",
-            "KC_TRNS"     , "KC_NO"       , "LCTL(KC_LALT)"  , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_F4"       , "KC_F5"          , "KC_F6"         , "KC_F11",
-            "KC_TRNS"     , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_F1"       , "KC_F2"          , "KC_F3"         , "KC_F12",
-                                                               "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"
-        ],
-        [
-            "KC_PSLS"     , "KC_7"        , "KC_8"           , "KC_9"          , "KC_PPLS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-            "KC_0"        , "KC_1"        , "KC_2"           , "KC_3"          , "KC_PMNS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_NO"         , "KC_TRNS",
-            "KC_PAST"     , "KC_4"        , "KC_5"           , "KC_6"          , "KC_PEQL"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-                                                               "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"
-        ],
-        [
-            "KC_TRNS"     , "KC_TRNS"     , "KC_COLN"        , "KC_ESC"        , "KC_TRNS"       , "KC_TRNS"       , "KC_TRNS"     , "KC_TRNS"        , "KC_TRNS"       , "KC_DEL",
-            "KC_TRNS"     , "KC_PERC"     , "KC_SLSH"        , "KC_ENT"        , "KC_TRNS"       , "DF(1)"         , "KC_LGUI"     , "KC_TRNS"        , "KC_TRNS"       , "KC_TRNS",
-            "KC_TRNS"     , "KC_TRNS"     , "KC_TRNS"        , "KC_EXLM"       , "KC_TRNS"       , "DF(0)"         , "KC_TRNS"     , "RALT_T(KC_COMM)", "RCTL_T(KC_DOT)", "QK_BOOT",
-                                                               "KC_TRNS"       , "KC_TAB"        , "KC_NO"         , "KC_TRNS"
+            "RGB_TOG"     , "RGB_MOD"     , "RGB_HUI"        , "RGB_SAI"       , "RGB_VAI"       , "RGB_SPI"       , "KC_NO"     , "KC_NO"        , "KC_NO"       , "QK_BOOT",
+            "RGB_M_P"     , "RGB_RMOD"    , "RGB_HUD"        , "RGB_SAD"       , "RGB_VAD"       , "RGB_SPD"       , "KC_NO"     , "KC_NO"        , "KC_NO"       , "KC_NO",
+            "RGB_M_B"     , "RGB_M_R"     , "RGB_M_SW"       , "RGB_M_SN"      , "RGB_M_K"       , "KC_NO"         , "KC_NO"     , "KC_NO"        , "KC_NO"       , "KC_NO",
+                                                               "RGB_M_G"       , "RGB_M_X"       , "TO(0)"         , "TO(0)"
         ]
     ],
     "config": {
