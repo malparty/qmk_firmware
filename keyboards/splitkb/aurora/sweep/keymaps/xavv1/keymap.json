@@ -42,14 +42,6 @@
         ]
     ],
     "config": {
-        "features": {
-            "oled": false,
-            "rgb_matrix": true,
-            "rgblight": true
-        },
-        "encoder": {
-            "enabled": true
-        },
         "rgblight": {
             "hue_steps": 8,
             "saturation_steps": 8,
