@@ -1,7 +1,8 @@
 LTO_ENABLE = yes
-CONVERT_TO=elite_pi
+CONVERT_TO = elite_pi
 
 SRC += features/leader.c
+SRC += features/tap_dance.c
 
 OLED_ENABLE = no
 # OLED_DRIVER = SSD1306
@@ -10,7 +11,8 @@ MOUSEKEY_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
 AUTO_SHIFT_MODIFIERS = no
 COMBO_ENABLE = no
-LEADER_ENABLE = no
+LEADER_ENABLE = yes
+TAP_DANCE_ENABLE = yes
 
-UNICODE_ENABLE = no
-SEND_STRING_ENABLE = no
+UNICODE_ENABLE = yes
+SEND_STRING_ENABLE = yes
