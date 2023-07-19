@@ -29,13 +29,9 @@
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
-/* Unicode */
-// #define UNICODE_SELECTED_MODES UC_LNX
-#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
-
 /* leader */
 #define LEADER_PER_KEY_TIMING
-#define LEADER_TIMEOUT 280
+#define LEADER_TIMEOUT 480
 #define LEADER_NO_TIMEOUT
 
 /* Tap dance */

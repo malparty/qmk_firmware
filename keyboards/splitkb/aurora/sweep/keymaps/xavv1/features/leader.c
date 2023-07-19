@@ -10,42 +10,22 @@ void leader_end_user(void) {
     SEND_STRING("xavier@malparty.fr");
   } else if (leader_sequence_two_keys(KC_M, KC_L)) {
     SEND_STRING("xavier@nimble.hq");
-  } else if (leader_sequence_two_keys(KC_F, KC_L)) {
-    SEND_STRING("malparty");
+  } else if (leader_sequence_two_keys(KC_L, KC_N)) {
+    SEND_STRING("Malparty");
+  } else if (leader_sequence_two_keys(KC_F, KC_N)) {
+    SEND_STRING("Xavier");
 
-  } else if (leader_sequence_three_keys(KC_Q, KC_M, KC_C)) {
-    SEND_STRING("qmk compile && qmk flash");
-
-  } else if (leader_sequence_three_keys(KC_T, KC_E, KC_S)) {
-    SEND_STRING("test01234");
-  } else if (leader_sequence_three_keys(KC_A, KC_D, KC_M)) {
-    SEND_STRING("admin01234");
+  } else if (leader_sequence_two_keys(KC_G, KC_T)) {
+    SEND_STRING("(){ git switch develop; git fetch --all && git br -D $1; git co $1 }");
+  } else if (leader_sequence_two_keys(KC_G, KC_P)) {
+    SEND_STRING("git push");
+  } else if (leader_sequence_three_keys(KC_G, KC_P, KC_F)) {
+    SEND_STRING("git push --force");
+  } else if (leader_sequence_threegit_keys(KC_G, KC_P, KC_U)) {
+    SEND_STRING("git pull");
 
     /* Currency */
   } else if (leader_sequence_three_keys(KC_E, KC_U, KC_R)) {
     tap_code16(US_EURO); // €
-
-    /* Icons */
-  } else if (leader_sequence_three_keys(KC_L, KC_O, KC_V)) {
-    send_unicode_string("♥");
-  } else if (leader_sequence_three_keys(KC_S, KC_T, KC_A)) {
-    send_unicode_string("✶");
-  } else if (leader_sequence_three_keys(KC_B, KC_U, KC_L)) {
-    send_unicode_string("💡");
-  } else if (leader_sequence_four_keys(KC_I, KC_N, KC_F, KC_O)) {
-    send_unicode_string("ℹ️");
-
-  } else if (leader_sequence_two_keys(KC_V, KC_V)) {
-    send_unicode_string("✅");
-
-  } else if (leader_sequence_one_key(KC_X)) {
-    send_unicode_string("✗");
-  } else if (leader_sequence_two_keys(KC_X, KC_B)) {
-    send_unicode_string("✘");
-
-  } else if (leader_sequence_one_key(KC_EXCLAIM)) {
-    send_unicode_string("❗");
-  } else if (leader_sequence_one_key(KC_QUESTION)) {
-    send_unicode_string("❓");
   };
 }

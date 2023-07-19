@@ -14,5 +14,7 @@ COMBO_ENABLE = no
 LEADER_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 
-UNICODE_ENABLE = yes
+# Require hex input which prevents OPT left/right shortcuts.
+UNICODE_ENABLE = no
+
 SEND_STRING_ENABLE = yes
