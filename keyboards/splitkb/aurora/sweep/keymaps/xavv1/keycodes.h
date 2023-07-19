@@ -43,6 +43,7 @@ enum tap_dance_keys {
 
 typedef struct {
     uint16_t tap;
-    uint16_t layer;
+    uint16_t hold;
     uint16_t held;
+    uint16_t held_layer;
 } tap_dance_tap_hold_layer_t;

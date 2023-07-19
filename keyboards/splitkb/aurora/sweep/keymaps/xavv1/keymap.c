@@ -1,6 +1,26 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    tap_dance_action_t *action;
+
+    switch (keycode) {
+        // list all tap dance keycodes with tap-hold configurations
+        case TD(TD_TAB_MOUSE):
+        case TD(TD_SPC_NAV):
+        case TD(TD_BSP_NUM):
+        case TD(TD_ENT_SYM):
+        case TD(TD_BROWSER):
+        case TD(TD_GITFIGMA):
+            action = &tap_dance_actions[TD_INDEX(keycode)];
+            if (!record->event.pressed && action->state.count && !action->state.finished) {
+                tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)action->user_data;
+                tap_code16(tap_hold->tap);
+            }
+    }
+    return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(

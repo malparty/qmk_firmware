@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.erb": "erb",
+    "*.rbs": "rbs",
+    "keycodes.h": "c"
+  }
+}

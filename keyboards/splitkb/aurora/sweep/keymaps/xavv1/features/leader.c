@@ -21,7 +21,7 @@ void leader_end_user(void) {
     SEND_STRING("git push");
   } else if (leader_sequence_three_keys(KC_G, KC_P, KC_F)) {
     SEND_STRING("git push --force");
-  } else if (leader_sequence_threegit_keys(KC_G, KC_P, KC_U)) {
+  } else if (leader_sequence_three_keys(KC_G, KC_P, KC_U)) {
     SEND_STRING("git pull");
 
     /* Currency */

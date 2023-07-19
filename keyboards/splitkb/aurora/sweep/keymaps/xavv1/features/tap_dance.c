@@ -1,32 +1,59 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
 
-// TODO:
-// - backspace, space, enter can't be pressed quickly enough and can't tap/hold quickly
+void tap_dance_tap_hold_layer_finished(tap_dance_state_t *state, void *user_data) {
+    tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)user_data;
 
-void dance_tap_hold_layer_finished(tap_dance_state_t *state, void *user_data) {
+    if (state->pressed && !layer_state_is(tap_hold->hold)) {
+        layer_on(tap_hold->hold);
+        tap_hold->held_layer = tap_hold->hold;
+    }
+}
+
+void tap_dance_tap_hold_layer_reset(tap_dance_state_t *state, void *user_data) {
+    tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)user_data;
+
+    if (tap_hold->held) {
+        unregister_code16(tap_hold->held);
+        tap_hold->held = 0;
+    } else if (tap_hold->held_layer) {
+        layer_clear();
+        tap_hold->held_layer = 0;
+    }
+}
+
+void tap_dance_tap_hold_finished(tap_dance_state_t *state, void *user_data) {
     tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)user_data;
 
     if (state->pressed) {
-        layer_on(tap_hold->layer);
-    } else {
-        layer_off(tap_hold->layer);
-
-        if (state->count > 0) {
-          int i;
-          for (i = 0; i < state->count; i++) {
-            tap_code16(tap_hold->tap);
-          }
+        if (state->count == 1
+#ifndef PERMISSIVE_HOLD
+            && !state->interrupted
+#endif
+        ) {
+            register_code16(tap_hold->hold);
+            tap_hold->held = tap_hold->hold;
+        } else {
+            register_code16(tap_hold->tap);
+            tap_hold->held = tap_hold->tap;
         }
     }
 }
 
-void tap_dance_tap_hold__layer_reset(tap_dance_state_t *state, void *user_data) {
-    layer_clear();
+void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
+    tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)user_data;
+
+    if (tap_hold->held) {
+        unregister_code16(tap_hold->held);
+        tap_hold->held = 0;
+    }
 }
 
-#define ACTION_TAP_DANCE_TAP_HOLD_LAYER(tap, layer) \
-    { .fn = {NULL, dance_tap_hold_layer_finished, tap_dance_tap_hold__layer_reset}, .user_data = (void *)&((tap_dance_tap_hold_layer_t){tap, layer, 0}), }
+#define ACTION_TAP_DANCE_TAP_HOLD(tap, hold) \
+    { .fn = {NULL, tap_dance_tap_hold_finished, tap_dance_tap_hold_reset}, .user_data = (void *)&((tap_dance_tap_hold_layer_t){tap, hold, 0}), }
+
+#define ACTION_TAP_DANCE_TAP_HOLD_LAYER(tap, hold) \
+    { .fn = {NULL, tap_dance_tap_hold_layer_finished, tap_dance_tap_hold_layer_reset}, .user_data = (void *)&((tap_dance_tap_hold_layer_t){tap, hold, 0}), }
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_TAB_MOUSE] = ACTION_TAP_DANCE_TAP_HOLD_LAYER(KC_TAB, _MOUSE),
@@ -34,6 +61,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_BSP_NUM] = ACTION_TAP_DANCE_TAP_HOLD_LAYER(KC_BSPC, _NUM),
     [TD_ENT_SYM] = ACTION_TAP_DANCE_TAP_HOLD_LAYER(KC_ENTER, _SYM),
 
-    [TD_BROWSER] = ACTION_TAP_DANCE_DOUBLE(LGUI(KC_3), LGUI(KC_6)),
-    [TD_GITFIGMA] = ACTION_TAP_DANCE_DOUBLE(LGUI(KC_2), LGUI(KC_5)),
+    [TD_BROWSER] = ACTION_TAP_DANCE_TAP_HOLD(LGUI(KC_3), LGUI(KC_6)),
+    [TD_GITFIGMA] = ACTION_TAP_DANCE_TAP_HOLD(LGUI(KC_2), LGUI(KC_5)),
 };
