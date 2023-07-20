@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
-
+// TODO: use a new layer of string sends for all terminal aliases and emojis (using Mac os text replace feature!!!)
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     tap_dance_action_t *action;
 
@@ -17,6 +17,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)action->user_data;
                 tap_code16(tap_hold->tap);
             }
+            break;
+        case SS_CHEC:
+        case SS_PRAY:
+        case SS_BULB:
+        case SS_STAR:
+        case SS_STST:
+        case SS_HARO:
+        case SS_TEAR:
+        case SS_CROS:
+            if (record->event.pressed) {
+                SEND_STRING(send_string_actions[keycode]);
+            }
+            return false;
     }
     return true;
 }
@@ -25,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
-             KC_Q        ,       KC_W       ,       KC_F       ,       KC_P       ,      KC_B       ,           KC_J       ,      KC_L        ,       KC_U       ,       KC_Y       ,    KC_QUOTE      ,
+             KC_Q        ,       KC_W       ,       KC_F       ,       KC_P       ,      KC_B       ,           KC_J       ,LT(_SENDSTR, KC_L),       KC_U       ,       KC_Y       ,    KC_QUOTE      ,
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
        MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_R),MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),      KC_G       ,           KC_M       ,MT(MOD_RSFT, KC_N),MT(MOD_RCTL, KC_E),MT(MOD_RALT, KC_I),MT(MOD_RGUI, KC_O),
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
@@ -58,6 +71,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_COLN, KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, KC_BRID, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI,
             KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_PIPE, KC_MPRV, KC_MPLY, KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_MNXT,
             KC_LPRN, KC_RPRN, KC_NO, KC_TRNS
+        ),
+	[_SENDSTR] = LAYOUT(
+            KC_TRNS, KC_TRNS, SS_PRAY, SS_CHEC, SS_BULB, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, SS_STAR, KC_CIRC, SS_STST, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, SS_HARO, SS_CROS, SS_TEAR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
         ),
 	[_RGB] = LAYOUT(
         RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_NO, KC_NO, QK_BOOT,

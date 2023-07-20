@@ -10,25 +10,21 @@ enum custom_layers {
     _NAV,
     _NUM,
     _SYM,
+    _SENDSTR,
     _RGB,
 };
 
 enum custom_keys {
-    /* See auto-shift */
-    CS_A_GRAVE,
-    CS_E_GRAVE,
-    CS_U_GRAVE,
+    UNICODE = QK_KB_0, // Replace SAFE_RANGE, see pr #19909
 
-    CS_A_CIRCUMFLEX,
-    CS_E_CIRCUMFLEX,
-    CS_I_CIRCUMFLEX,
-    CS_O_CIRCUMFLEX,
-    CS_U_CIRCUMFLEX,
-
-    CS_E_DIAERESIS,
-    CS_I_DIAERESIS,
-    CS_U_DIAERESIS,
-    CS_Y_DIAERESIS,
+    SS_CHEC,
+    SS_PRAY,
+    SS_BULB,
+    SS_STAR,
+    SS_STST,
+    SS_HARO,
+    SS_TEAR,
+    SS_CROS,
 };
 
 enum tap_dance_keys {
@@ -39,7 +35,7 @@ enum tap_dance_keys {
 
     TD_BROWSER,
     TD_GITFIGMA,
-    };
+};
 
 typedef struct {
     uint16_t tap;
@@ -47,3 +43,14 @@ typedef struct {
     uint16_t held;
     uint16_t held_layer;
 } tap_dance_tap_hold_layer_t;
+
+*char send_string_actions[][16] = {
+    [SS_CHEC] = ":check_:",
+    [SS_PRAY] = ":pray_:",
+    [SS_BULB] = ":bulb_:",
+    [SS_STAR] = ":star_:",
+    [SS_STST] = ":starstruck_:",
+    [SS_HARO] = ":harold:",
+    [SS_TEAR] = ":tearsmile_:",
+    [SS_CROS] = ":cross_:",
+};
