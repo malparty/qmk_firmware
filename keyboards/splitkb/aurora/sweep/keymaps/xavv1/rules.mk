@@ -1,7 +1,6 @@
 LTO_ENABLE = yes
 CONVERT_TO = elite_pi
 
-SRC += features/leader.c
 SRC += features/tap_dance.c
 
 OLED_ENABLE = no
@@ -11,7 +10,7 @@ MOUSEKEY_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
 AUTO_SHIFT_MODIFIERS = no
 COMBO_ENABLE = no
-LEADER_ENABLE = yes
+LEADER_ENABLE = no
 TAP_DANCE_ENABLE = yes
 
 # Require hex input which prevents OPT left/right shortcuts.

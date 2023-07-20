@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
-#include "keymap_us_extended.h"
 
 enum custom_layers {
     _BASE,
@@ -15,16 +14,27 @@ enum custom_layers {
 };
 
 enum custom_keys {
-    UNICODE = QK_KB_0, // Replace SAFE_RANGE, see pr #19909
-
-    SS_CHEC,
-    SS_PRAY,
-    SS_BULB,
-    SS_STAR,
-    SS_STST,
-    SS_HARO,
-    SS_TEAR,
-    SS_CROS,
+    // SEND STRINGS
+    SS_SLOW_START = QK_KB_0, // might conflict with MOD TAP!!!
+        SS_S1,
+        SS_S2,
+        SS_S3,
+        SS_S4,
+        SS_HARO,
+        SS_S6,
+        SS_S7,
+        SS_S8,
+        SS_S9,
+        SS_WQ,
+    SS_FAST_START,
+        SS_MAILW,
+        SS_MAILP,
+        SS_LNAME,
+        SS_FNAME,
+        SS_GITTT,
+        SS_GIT,
+        SS_GTPF,
+    SS_END,
 };
 
 enum tap_dance_keys {
@@ -32,6 +42,7 @@ enum tap_dance_keys {
     TD_SPC_NAV,
     TD_BSP_NUM,
     TD_ENT_SYM,
+    TD_QUOTE_SENDS,
 
     TD_BROWSER,
     TD_GITFIGMA,
@@ -43,14 +54,3 @@ typedef struct {
     uint16_t held;
     uint16_t held_layer;
 } tap_dance_tap_hold_layer_t;
-
-*char send_string_actions[][16] = {
-    [SS_CHEC] = ":check_:",
-    [SS_PRAY] = ":pray_:",
-    [SS_BULB] = ":bulb_:",
-    [SS_STAR] = ":star_:",
-    [SS_STST] = ":starstruck_:",
-    [SS_HARO] = ":harold:",
-    [SS_TEAR] = ":tearsmile_:",
-    [SS_CROS] = ":cross_:",
-};

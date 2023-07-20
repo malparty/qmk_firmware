@@ -29,11 +29,6 @@
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
-/* leader */
-#define LEADER_PER_KEY_TIMING
-#define LEADER_TIMEOUT 480
-#define LEADER_NO_TIMEOUT
-
 /* Tap dance */
-#define TAPPING_TERM 175
+#define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY

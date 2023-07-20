@@ -1,7 +1,31 @@
 #include QMK_KEYBOARD_H
 #include "keycodes.h"
-// TODO: use a new layer of string sends for all terminal aliases and emojis (using Mac os text replace feature!!!)
+
+char send_string_actions[][11] = {
+    " :1_ ",
+    " :2_ ",
+    " :3_ ",
+    " :4_ ",
+    " :harold: ",
+    " :6_ ",
+    " :7_ ",
+    " :8_ ",
+    " :9_ ",
+    "\e:wq\n",
+};
+
+char send_string_fast_actions[][19] = {
+        "xavier@nimble.hq",
+        "xavier@malparty.fr",
+        "Malparty",
+        "Xavier",
+        "gttt ",
+        "git push --force",
+        "git ",
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // TAP DANCE
     tap_dance_action_t *action;
 
     switch (keycode) {
@@ -10,6 +34,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TD(TD_SPC_NAV):
         case TD(TD_BSP_NUM):
         case TD(TD_ENT_SYM):
+        case TD(TD_QUOTE_SENDS):
         case TD(TD_BROWSER):
         case TD(TD_GITFIGMA):
             action = &tap_dance_actions[TD_INDEX(keycode)];
@@ -17,20 +42,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)action->user_data;
                 tap_code16(tap_hold->tap);
             }
-            break;
-        case SS_CHEC:
-        case SS_PRAY:
-        case SS_BULB:
-        case SS_STAR:
-        case SS_STST:
-        case SS_HARO:
-        case SS_TEAR:
-        case SS_CROS:
-            if (record->event.pressed) {
-                SEND_STRING(send_string_actions[keycode]);
-            }
-            return false;
+            return true;
     }
+
+    // SEND STRINGS
+    if (keycode > SS_SLOW_START && keycode < SS_FAST_START) {
+        if (record->event.pressed) {
+            int action_index = keycode - SS_SLOW_START - 1;
+            SEND_STRING_DELAY(send_string_actions[action_index], 25);
+        }
+        return false;
+    }
+    else if (keycode > SS_FAST_START && keycode < SS_END) {
+        if (record->event.pressed) {
+            int action_index = keycode - SS_FAST_START - 1;
+            SEND_STRING(send_string_fast_actions[action_index]);
+        }
+        return false;
+    }
+
     return true;
 }
 
@@ -38,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE] = LAYOUT(
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
-             KC_Q        ,       KC_W       ,       KC_F       ,       KC_P       ,      KC_B       ,           KC_J       ,LT(_SENDSTR, KC_L),       KC_U       ,       KC_Y       ,    KC_QUOTE      ,
+             KC_Q        ,       KC_W       ,       KC_F       ,       KC_P       ,      KC_B       ,           KC_J       ,      KC_L        ,       KC_U       ,       KC_Y       ,TD(TD_QUOTE_SENDS),
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
        MT(MOD_LGUI, KC_A),MT(MOD_LALT, KC_R),MT(MOD_LCTL, KC_S),MT(MOD_LSFT, KC_T),      KC_G       ,           KC_M       ,MT(MOD_RSFT, KC_N),MT(MOD_RCTL, KC_E),MT(MOD_RALT, KC_I),MT(MOD_RGUI, KC_O),
     //|------------------+------------------+------------------+------------------+-----------------|   |------------------+------------------+------------------+------------------+------------------|
@@ -61,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO, KC_TRNS, KC_TRNS, KC_TRNS
         ),
 	[_NUM] = LAYOUT(
-            KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC, KC_TRNS, SS_WQ, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_SCLN, KC_4, KC_5, KC_6, KC_EQL, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
             KC_GRV, KC_1, KC_2, KC_3, KC_BSLS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS,
             KC_0, KC_DOT, KC_TRNS, KC_NO
@@ -73,10 +103,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LPRN, KC_RPRN, KC_NO, KC_TRNS
         ),
 	[_SENDSTR] = LAYOUT(
-            KC_TRNS, KC_TRNS, SS_PRAY, SS_CHEC, SS_BULB, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, SS_STAR, KC_CIRC, SS_STST, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, SS_HARO, SS_CROS, SS_TEAR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+            SS_GITTT, SS_S7, SS_S8,   SS_S9, SS_GTPF,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            SS_MAILP, SS_S4, SS_HARO, SS_S6, SS_LNAME,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            SS_MAILW, SS_S1, SS_S2,   SS_S3, SS_FNAME,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            SS_GIT, KC_TRNS, KC_TRNS, KC_TRNS
         ),
 	[_RGB] = LAYOUT(
         RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_NO, KC_NO, KC_NO, QK_BOOT,
