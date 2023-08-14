@@ -16,24 +16,21 @@ enum custom_layers {
 enum custom_keys {
     // SEND STRINGS
     SS_SLOW_START = QK_KB_0, // might conflict with MOD TAP!!!
-        SS_S1,
-        SS_S2,
-        SS_S3,
-        SS_S4,
-        SS_HARO,
-        SS_S6,
-        SS_S7,
-        SS_S8,
-        SS_S9,
         SS_WQ,
     SS_FAST_START,
         SS_MAILW,
         SS_MAILP,
         SS_LNAME,
         SS_FNAME,
+        SS_GITCM,
         SS_GITTT,
-        SS_GIT,
         SS_GTPF,
+        SS_BUND,
+        SS_DBMI,
+        SS_TX,
+        SS_NC,
+        SS_CK,
+        SS_HARO,
     SS_END,
 };
 
