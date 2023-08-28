@@ -34,6 +34,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TD(TD_QUOTE_SENDS):
         case TD(TD_BROWSER):
         case TD(TD_GITFIGMA):
+        case TD(TD_RECTANGLE):
             action = &tap_dance_actions[TD_INDEX(keycode)];
             if (!record->event.pressed && action->state.count && !action->state.finished) {
                 tap_dance_tap_hold_layer_t *tap_hold = (tap_dance_tap_hold_layer_t *)action->user_data;
@@ -83,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 	[_MOUSE] = LAYOUT(
             TD(TD_GITFIGMA), TD(TD_BROWSER), LGUI(KC_1), LOPT(KC_SPC), LGUI(KC_4), RSG(KC_Z), LGUI(KC_V), LGUI(KC_C), LGUI(KC_X), LGUI(KC_Z),
-            KC_LGUI, KC_LOPT, KC_LCTL, KC_LSFT, LGUI(LOPT(KC_ENT)),         KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
-            KC_LEFT, KC_UP, KC_DOWN, KC_RGHT, LGUI(LOPT(LCTL(KC_LEFT))),    KC_BTN3, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,
+            KC_LGUI, KC_LOPT, KC_LCTL, KC_LSFT, LGUI(LSFT(KC_E)),         KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
+            KC_LEFT, KC_UP, KC_DOWN, KC_RGHT, TD(TD_RECTANGLE),    KC_BTN3, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,
                                                         KC_TRNS, KC_NO,     KC_BTN2, KC_BTN1
         ),
 	[_NAV] = LAYOUT(
