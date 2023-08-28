@@ -43,6 +43,7 @@ enum tap_dance_keys {
 
     TD_BROWSER,
     TD_GITFIGMA,
+    TD_RECTANGLE,
 };
 
 typedef struct {
