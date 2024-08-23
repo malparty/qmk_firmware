@@ -14,7 +14,7 @@
         "nkro": false,
         "rgb_matrix": false,
         "digitizer": true,
-        "pointing_device": true
+        "pointing_device": false
     },
     "usb": {
         "device_version": "1.0.0",
